@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  button {
+    margin-top: 1rem;
+    padding: .6rem 2rem;
+  }
+</style>
+</head>
+<body>
+  <h1>Age Calculator</h1>
+  <label for="dob">Enter your date of birth:</label>
+  <input type="date" id="dob">
+  <br>
+  <button onclick="calculateAge()">Calculate Age</button>
+  <p id="result"></p>
+  
+  <script>
+    var dobInput = document.getElementById('dob');
+    dobInput.max=new Date().toISOString().split("T")[0];
+    function calculateAge() {
+    var dob = new Date(dobInput.value);
+    var now = new Date();
+    
+    var ageYears = now.getFullYear() - dob.getFullYear();
+    var ageMonths = now.getMonth() - dob.getMonth();
+    var ageDays = now.getDate() - dob.getDate();
+    
+    // Adjust age for negative month or day differences
+    if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
+        ageYears--;
+        ageMonths += 12;
+    }
+    
+    // Adjust days for negative day differences
+    if (ageDays < 0) {
+        ageMonths--;
+        var lastMonthDate = new Date(now.getFullYear(), now.getMonth(), 0);
+        ageDays += lastMonthDate.getDate();
+    }
+    
+    document.getElementById('result').innerHTML = "Your age is " + ageYears + " years, " + ageMonths + " months, and " + ageDays + " days.";
+  }
+</script>
+  <script>
+      var dobInput = document.getElementById('dob');
+      dobInput.max=new Date().toISOString().split("T")[0];
+      function calculateAge() {
+      var dob = new Date(dobInput.value);
+      var now = new Date();
+      
+      var ageYears = now.getFullYear() - dob.getFullYear();
+      var ageMonths = now.getMonth() - dob.getMonth();
+      var ageDays = now.getDate() - dob.getDate();
+      
+      // Adjust age for negative month or day differences
+      if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
+          ageYears--;
+          ageMonths += 12;
+      }
+      
+      // Adjust days for negative day differences
+      if (ageDays < 0) {
+          ageMonths--;
+          var lastMonthDate = new Date(now.getFullYear(), now.getMonth(), 0);
+          ageDays += lastMonthDate.getDate();
+      }
+      
+      document.getElementById('result').innerHTML = "Your age is " + ageYears + " years, " + ageMonths + " months, and " + ageDays + " days.";
+    }
+  </script>
+
+</body>
+</html>
