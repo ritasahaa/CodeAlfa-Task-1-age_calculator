@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body{
+    background-color: rgba(128, 0, 128, .5); 
+    /* background-color: #7b68ee; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1{
+    margin-bottom: 1.7rem;
+}
+
+span{
+    color: rgb(241, 241, 58);
+}
+
+input{
+    padding: .7rem 4rem;
+}
+
+button{
+    padding: .7rem 1rem;
+    margin-left: 1rem;
+    background-color: rgb(241, 241, 58);
+    border: none;
+}
+
+.content{
+    padding: 1.5rem 2rem;
+    background-color: rgba(211, 196, 196, 0.5);
+}
+
+p{
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
